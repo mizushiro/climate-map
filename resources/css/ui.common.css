@@ -195,25 +195,17 @@ input[type="radio"]:checked:disabled + label:before{background-position:-60px -2
 .chart-area {flex-shrink:0;height:220px;border-top:1px solid #707070;border-bottom:1px solid #707070;width:100%}
 .map-divide-area {height:calc(100vh - 340px);width:100%;display:flex;flex-wrap:wrap;position:relative}
 .map-divide-item {position:relative}
-.map-divide-item-name {position:absolute;font-size:18px;color:#2F3233;width:120px;height:36px;border-radius:7px;background-color:#fff;align-items:center;justify-content:center;font-weight:600;top:40px;display:flex}
+.map-divide-item-name {position:absolute;font-size:18px;color:#2F3233;width:120px;height:36px;left:40px;border-radius:7px;background-color:#fff;align-items:center;justify-content:center;font-weight:600;top:40px;display:flex}
 .map-divide-item:nth-child(odd) {background-color:#D8D8D8}
 .map-divide-item:nth-child(even) {background-color:#999797}
 .map-divide-1 .map-divide-item {width:100%;height:100%}
-.map-divide-1 .map-divide-item .map-divide-item-name {left:40px}
 .map-divide-2 .map-divide-item {width:50%;height:100%}
-.map-divide-2 .map-divide-item:nth-child(odd) .map-divide-item-name {left:40px}
-.map-divide-2 .map-divide-item:nth-child(even) .map-divide-item-name {right:40px}
 .map-divide-3 .map-divide-item {width:calc(100% / 3);height:100%}
-.map-divide-3 .map-divide-item:nth-child(1) .map-divide-item-name,
-.map-divide-3 .map-divide-item:nth-child(2) .map-divide-item-name {left:40px}
-.map-divide-3 .map-divide-item:nth-child(3) .map-divide-item-name {right:40px}
 .map-divide-4 .map-divide-item {width:50%;height:50%}
-.map-divide-4 .map-divide-item:nth-child(odd) .map-divide-item-name {left:40px}
-.map-divide-4 .map-divide-item:nth-child(even) .map-divide-item-name {right:40px}
 .map-divide-4 .map-divide-item:nth-child(3) {background-color:#999797}
 .map-divide-4 .map-divide-item:nth-child(4) {background-color:#D8D8D8}
 
-.map-center {position:absolute;top:20px;bottom:20px;left:50%;width:80px;margin-left:-40px;border-radius:7px;background-color:rgba(255,255,255,.8);display:flex;flex-direction:column;align-items:center;padding:24px 0}
+.map-center {position:absolute;top:20px;bottom:20px;right:40px;width:80px;border-radius:7px;background-color:rgba(255,255,255,.8);display:flex;flex-direction:column;align-items:center;padding:24px 0}
 .btn-center-group {display:flex;flex-direction:column;gap:8px}
 .btn-center-group .btn-type2 + .btn-layer-hover {margin-top:12px}
 .map-center-bottom {margin-top:auto;position:relative}
