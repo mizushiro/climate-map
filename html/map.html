@@ -1,0 +1,606 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<title>기후변화상황지도</title>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../resources/css/ui.base.css">
+
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script src="../resources/js/ui.plugins.js"></script>
+	<script src="../resources/js/ui.common.js"></script>
+</head>
+
+<body>
+	<div class="base-wrap">
+		<div class="head">
+			<h1 class="h1-logo">
+				<img src="../resources/img/icon/icon-logo.svg" alt="">
+				<span class="h1-logo-text">기후변화상황지도서비스</span>
+			</h1>
+			<div class="lang-box">
+				<a href="" class="btn-lang active">한국어</a>
+				<a href="" class="btn-lang">English</a>
+			</div>
+		</div>
+		<div class="map-chart-box">
+			<div class="top-box">
+				<div class="select-area">
+					<button type="button" class="fake-select">
+						<span>공통사회경제경로</span>
+						<span class="sub-option">SSP1-2.6</span>
+					</button>
+					<div class="fake-select-list">
+						<button type="button" class="fake-select-item">SSP1 - 2.6</button>
+						<button type="button" class="fake-select-item">SSP2 - 4.5</button>
+						<button type="button" class="fake-select-item">SSP3 - 7.0</button>
+						<button type="button" class="fake-select-item">SSP5 - 8.0</button>
+					</div>
+				</div>
+				<div class="top-group">
+					<button type="button" class="btn-type3 selected">
+						<img src="../resources/img/icon/icon-avg.svg" alt="">
+						<span class="btn-text">기온-AVG</span>
+					</button>
+					<button type="button" class="btn-type3">
+						<img src="../resources/img/icon/icon-min.svg" alt="">
+						<span class="btn-text">기온-MIN</span>
+					</button>
+					<button type="button" class="btn-type3">
+						<img src="../resources/img/icon/icon-max.svg" alt="">
+						<span class="btn-text">기온-MAX</span>
+					</button>
+					<button type="button" class="btn-type3">
+						<img src="../resources/img/icon/icon-rain.svg" alt="">
+						<span class="btn-text">강수량</span>
+					</button>
+					<button type="button" class="btn-type3">
+						<img src="../resources/img/icon/icon-wind.svg" alt="">
+						<span class="btn-text">바람</span>
+					</button>
+					<button type="button" class="btn-type3">
+						<img src="../resources/img/icon/icon-sun.svg" alt="">
+						<span class="btn-text">일조량</span>
+					</button>
+				</div>
+			</div>
+			<div class="lnb-nav">
+				<div class="nav-group">
+					<button type="button" class="btn-type1 selected">
+						<img src="../resources/img/icon/icon-nav1.svg" alt="" style="width:50px">
+						<span class="btn-text-small">전지구</span>
+					</button>
+					<button type="button" class="btn-type1">
+						<img src="../resources/img/icon/icon-nav2.svg" alt="" style="width:50px">
+						<span class="btn-text-small">남한상세</span>
+					</button>
+					<button type="button" class="btn-type1">
+						<img src="../resources/img/icon/icon-nav3.svg" alt="" style="width:56px">
+						<span class="btn-text-small">재분석장</span>
+					</button>
+					<button type="button" class="btn-type1">
+						<img src="../resources/img/icon/icon-nav4.svg" alt="" style="width:60px">
+						<span class="btn-text-small">다운로드</span>
+					</button>
+				</div>
+			</div>
+			<div class="right-side">
+				<button type="button" class="btn-type2">
+					<img src="../resources/img/icon/icon-plus.svg" alt="">
+				</button>
+				<button type="button" class="btn-type2">
+					<img src="../resources/img/icon/icon-minus.svg" alt="">
+				</button>
+				<div class="btn-layer-hover">
+					<button type="button" class="btn-type2">
+						<img src="../resources/img/icon/icon-down.svg" alt="">
+					</button>
+					<div class="right-side-layer">
+						<div class="right-side-layer-box">
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-csv.svg" alt="">
+							</button>
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-xl.svg" alt="">
+							</button>
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-pdf.svg" alt="">
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="btn-layer-hover">
+					<button type="button" class="btn-type2">
+						<img src="../resources/img/icon/icon-map.svg" alt="">
+					</button>
+					<div class="right-side-layer">
+						<div class="right-side-layer-box">
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-map-1.svg" alt="">
+							</button>
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-map-2.svg" alt="">
+							</button>
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-map-3.svg" alt="">
+							</button>
+						</div>
+					</div>
+				</div>
+				<button type="button" class="btn-type2">
+					<img src="../resources/img/icon/icon-choice.svg" alt="">
+				</button>
+				<div class="btn-layer-hover">
+					<button type="button" class="btn-type2">
+						<img src="../resources/img/icon/icon-type.svg" alt="">
+					</button>
+					<div class="right-side-layer">
+						<div class="right-side-layer-box">
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-blue.svg" alt="">
+							</button>
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-grey.svg" alt="">
+							</button>
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-red.svg" alt="">
+							</button>
+							<button type="button" class="btn-type2">
+								<img src="../resources/img/icon/icon-rocket.svg" alt="">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right-bottom">
+				<button type="button" class="btn-type4 setting-open">
+					<img src="../resources/img/icon/icon-setting.svg" alt="" style="width:16px">
+				</button>
+				<div class="level-group">
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+					<div class="level-item"></div>
+				</div>
+				<div class="layer-setting">
+					<p class="setting-title">
+						<img src="../resources/img/icon/icon-setting.svg" alt="" style="width:12px">
+						범례설정
+					</p>
+					<div class="setting-btn-group">
+						<button type="button" class="btn-setting-item">1</button>
+						<button type="button" class="btn-setting-item">2</button>
+						<button type="button" class="btn-setting-item">3</button>
+						<button type="button" class="btn-setting-item">4</button>
+					</div>
+				</div>
+			</div>
+			<div class="bottom-box">
+				<div class="bottom-btn-group">
+					<button type="button" class="btn-type5">
+						<span class="btn-text-m">Yearly</span>
+					</button>
+					<div class="month-group">
+						<button type="button" class="btn-type5 month-open">
+							<span class="btn-text-m">Monthly</span>
+							<i class="btn-bullet"></i>
+						</button>
+						<div class="month-list">
+							<button type="button" class="btn-type6">1</button>
+							<button type="button" class="btn-type6">2</button>
+							<button type="button" class="btn-type6">3</button>
+							<button type="button" class="btn-type6">4</button>
+							<button type="button" class="btn-type6">5</button>
+							<button type="button" class="btn-type6">6</button>
+							<button type="button" class="btn-type6 selected">7</button>
+							<button type="button" class="btn-type6">8</button>
+							<button type="button" class="btn-type6">9</button>
+							<button type="button" class="btn-type6">10</button>
+							<button type="button" class="btn-type6">11</button>
+							<button type="button" class="btn-type6">12</button>
+						</div>
+					</div>
+				</div>
+				<div class="slider-area">
+					<div class="slider-btn">
+						<button type="button" class="btn-play">
+							<img src="../resources/img/icon/icon-play.svg" alt="">
+						</button>
+						<button type="button" class="btn-play">
+							<img src="../resources/img/icon/icon-pause.svg" alt="">
+						</button>
+						<button type="button" class="btn-play">
+							<img src="../resources/img/icon/icon-stop.svg" alt="">
+						</button>
+					</div>
+					<div class="slider-bar">
+						<div id="slider">
+							<div id="custom-handle" class="ui-slider-handle"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="map-area" style="background-color:#c7c7c7">
+				지도 영역
+				<div class="map-choice" style="left:200px;top:300px;width:200px;height:200px">
+					<button type="button" data-layer="data-layer2"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="map-layer-area">
+		<div class="map-layer-header">
+			<div class="year-month">
+				<button type="button" class="btn-type7">Yearly</button>
+				<button type="button" class="btn-type7 selected">Monthly</button>
+				<div class="select-item-box">
+					<select name="" id="">
+						<option value="">1월</option>
+						<option value="">2월</option>
+						<option value="">3월</option>
+						<option value="">4월</option>
+						<option value="">5월</option>
+						<option value="">6월</option>
+						<option value="">7월</option>
+						<option value="">8월</option>
+						<option value="">9월</option>
+						<option value="">10월</option>
+						<option value="">11월</option>
+						<option value="">12월</option>
+					</select>
+				</div>
+			</div>
+			<div class="top-group">
+				<button type="button" class="btn-type3 selected">
+					<img src="../resources/img/icon/icon-avg.svg" alt="">
+					<span class="btn-text">기온-AVG</span>
+				</button>
+				<button type="button" class="btn-type3">
+					<img src="../resources/img/icon/icon-min.svg" alt="">
+					<span class="btn-text">기온-MIN</span>
+				</button>
+				<button type="button" class="btn-type3">
+					<img src="../resources/img/icon/icon-max.svg" alt="">
+					<span class="btn-text">기온-MAX</span>
+				</button>
+				<button type="button" class="btn-type3">
+					<img src="../resources/img/icon/icon-rain.svg" alt="">
+					<span class="btn-text">강수량</span>
+				</button>
+				<button type="button" class="btn-type3">
+					<img src="../resources/img/icon/icon-wind.svg" alt="">
+					<span class="btn-text">바람</span>
+				</button>
+				<button type="button" class="btn-type3">
+					<img src="../resources/img/icon/icon-sun.svg" alt="">
+					<span class="btn-text">일조량</span>
+				</button>
+			</div>
+			<div class="btn-layer-hover">
+				<button type="button" class="btn-type2">
+					<img src="../resources/img/icon/icon-down.svg" alt="">
+				</button>
+				<div class="right-side-layer">
+					<div class="right-side-layer-box">
+						<button type="button" class="btn-type2">
+							<img src="../resources/img/icon/icon-csv.svg" alt="">
+						</button>
+						<button type="button" class="btn-type2">
+							<img src="../resources/img/icon/icon-xl.svg" alt="">
+						</button>
+						<button type="button" class="btn-type2">
+							<img src="../resources/img/icon/icon-pdf.svg" alt="">
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="check-area">
+			<div class="chart-checkbox">
+				<input type="checkbox" id="treeDep11">
+				<label for="treeDep11" class="right-check-label">
+					<span class="right-check-data2">관측자료</span>
+				</label>
+			</div>
+		</div>
+		<div class="chart-area">
+			차트 영역
+		</div>
+		<div class="map-divide-area map-divide-4">
+			<div class="map-divide-item">
+				<span class="map-divide-item-name">SSP1-2.6</span>
+			</div>
+			<div class="map-divide-item">
+				<span class="map-divide-item-name">SSP1-2.6</span>
+			</div>
+			<div class="map-divide-item">
+				<span class="map-divide-item-name">SSP1-2.6</span>
+			</div>
+			<div class="map-divide-item">
+				<span class="map-divide-item-name">SSP1-2.6</span>
+			</div>
+			<div class="map-center">
+				<div class="btn-center-group">
+					<button type="button" class="btn-type2">
+						<img src="../resources/img/icon/icon-plus.svg" alt="">
+					</button>
+					<button type="button" class="btn-type2">
+						<img src="../resources/img/icon/icon-minus.svg" alt="">
+					</button>
+					<div class="btn-layer-hover">
+						<button type="button" class="btn-type2">
+							<img src="../resources/img/icon/icon-map.svg" alt="">
+						</button>
+						<div class="right-side-layer">
+							<div class="right-side-layer-box">
+								<button type="button" class="btn-type2">
+									<img src="../resources/img/icon/icon-map-1.svg" alt="">
+								</button>
+								<button type="button" class="btn-type2">
+									<img src="../resources/img/icon/icon-map-2.svg" alt="">
+								</button>
+								<button type="button" class="btn-type2">
+									<img src="../resources/img/icon/icon-map-3.svg" alt="">
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="btn-layer-hover">
+						<button type="button" class="btn-type2">
+							<img src="../resources/img/icon/icon-type.svg" alt="">
+						</button>
+						<div class="right-side-layer">
+							<div class="right-side-layer-box">
+								<button type="button" class="btn-type2">
+									<img src="../resources/img/icon/icon-blue.svg" alt="">
+								</button>
+								<button type="button" class="btn-type2">
+									<img src="../resources/img/icon/icon-grey.svg" alt="">
+								</button>
+								<button type="button" class="btn-type2">
+									<img src="../resources/img/icon/icon-red.svg" alt="">
+								</button>
+								<button type="button" class="btn-type2">
+									<img src="../resources/img/icon/icon-rocket.svg" alt="">
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="map-center-bottom">
+					<button type="button" class="btn-type4 setting-open">
+						<img src="../resources/img/icon/icon-setting.svg" alt="" style="width:16px">
+					</button>
+					<div class="level-group">
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+						<div class="level-item"></div>
+					</div>
+					<div class="layer-setting">
+						<p class="setting-title">
+							<img src="../resources/img/icon/icon-setting.svg" alt="" style="width:12px">
+							범례설정
+						</p>
+						<div class="setting-btn-group">
+							<button type="button" class="btn-setting-item">1</button>
+							<button type="button" class="btn-setting-item">2</button>
+							<button type="button" class="btn-setting-item">3</button>
+							<button type="button" class="btn-setting-item">4</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button type="button" class="btn-layer-area-close">
+			<img src="../resources/img/icon/icon-close.svg" alt="">
+		</button>
+	</div>
+	<div id="data-layer1" class="layer_section showing">
+		<div class="layer_section-container">
+			<div class="layer-content">
+				<div class="radio-group-box">
+					<div class="choice-item-type-a">
+						<input type="radio" id="a1-1" name="a1" class="inp-choice">
+						<label for="a1-1" class="choice-item-type-a-label">
+							<span class="label-title">SSP1 - 2.6</span>
+							<span class="label-desc">사회 불균형의 감소와 친환경 기술의 빠른 발달로 기후변화 완화, 적응능력이 좋은 지속성장가능 사회경제 구조의 저탄소 시나리오​</span>
+						</label>
+					</div>
+					<div class="choice-item-type-a">
+						<input type="radio" id="a1-2" name="a1" class="inp-choice">
+						<label for="a1-2" class="choice-item-type-a-label">
+							<span class="label-title">SSP2-4.5</span>
+							<span class="label-desc">중도성장의 사회경제 시나리오로 기후변화 완화 및 사회경제 발전 정도가 중간 단계 가정</span>
+						</label>
+					</div>
+					<div class="choice-item-type-a">
+						<input type="radio" id="a1-3" name="a1" class="inp-choice">
+						<label for="a1-3" class="choice-item-type-a-label">
+							<span class="label-title">SSP3-7.0</span>
+							<span class="label-desc">사회경제 발전의 불균형과 제도적 제한으로 인해 기후변화에 취약한 상태에 놓이는 사회경제 구조의 시나리오</span>
+						</label>
+					</div>
+					<div class="choice-item-type-a">
+						<input type="radio" id="a1-4" name="a1" class="inp-choice">
+						<label for="a1-4" class="choice-item-type-a-label">
+							<span class="label-title">SSP5-8.5</span>
+							<span class="label-desc">기후정책 부재, 화석연료 기반 성장과 높은 인적 투자로 기후변화 적응능력은 좋지만 완화능력이 낮은 사회경제 구조의 고탄소 시나리오</span>
+						</label>
+					</div>
+				</div>
+				<div class="year-month">
+					<button type="button" class="btn-type7">Yearly</button>
+					<button type="button" class="btn-type7 selected">Monthly</button>
+					<div class="select-item-box">
+						<select name="" id="">
+							<option value="">1월</option>
+							<option value="">2월</option>
+							<option value="">3월</option>
+							<option value="">4월</option>
+							<option value="">5월</option>
+							<option value="">6월</option>
+							<option value="">7월</option>
+							<option value="">8월</option>
+							<option value="">9월</option>
+							<option value="">10월</option>
+							<option value="">11월</option>
+							<option value="">12월</option>
+						</select>
+					</div>
+				</div>
+				<div class="layer-btn-box">
+					<button type="button" class="btn-type8">확 인</button>
+					<button type="button" class="btn-type8 btn_layer-close">취 소</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="data-layer2" class="layer_section">
+		<div class="layer_section-container">
+			<div class="layer-content">
+				<div class="map-view-box">
+					<div class="map-view-area">
+						<p class="point-data1">(-51, 15)</p>
+						<p class="point-data2">(-77, 51)</p>
+					</div>
+				</div>
+				<h2 class="layer-sub-title">+ 시나리오</h2>
+				<div class="checkbox-group-box">
+					<div class="choice-item-type-a">
+						<input type="checkbox" id="a2-1" name="" class="inp-choice">
+						<label for="a2-1" class="choice-item-type-a-label">
+							<span class="label-title">SSP1-2.6</span>
+						</label>
+					</div>
+					<div class="choice-item-type-a">
+						<input type="checkbox" id="a2-2" name="" class="inp-choice">
+						<label for="a2-2" class="choice-item-type-a-label">
+							<span class="label-title">SSP2-4.5</span>
+						</label>
+					</div>
+					<div class="choice-item-type-a">
+						<input type="checkbox" id="a2-3" name="" class="inp-choice">
+						<label for="a2-3" class="choice-item-type-a-label">
+							<span class="label-title">SSP3-7.0</span>
+						</label>
+					</div>
+					<div class="choice-item-type-a">
+						<input type="checkbox" id="a2-4" name="" class="inp-choice">
+						<label for="a2-4" class="choice-item-type-a-label">
+							<span class="label-title">SSP5-8.5</span>
+						</label>
+					</div>
+				</div>
+				<h2 class="layer-sub-title">+ 대상월선택</h2>
+				<div class="year-month">
+					<button type="button" class="btn-type7">Yearly</button>
+					<button type="button" class="btn-type7 selected">Monthly</button>
+					<div class="select-item-box">
+						<select name="" id="">
+							<option value="">1월</option>
+							<option value="">2월</option>
+							<option value="">3월</option>
+							<option value="">4월</option>
+							<option value="">5월</option>
+							<option value="">6월</option>
+							<option value="">7월</option>
+							<option value="">8월</option>
+							<option value="">9월</option>
+							<option value="">10월</option>
+							<option value="">11월</option>
+							<option value="">12월</option>
+						</select>
+					</div>
+				</div>
+				<div class="layer-btn-box">
+					<button type="button" class="btn-type8 map-detail-open">보 기</button>
+					<button type="button" class="btn-type8 btn_layer-close">취 소</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<script>
+		newhome.callLayer();
+		;(function($, win, doc, undefined) {
+			$(doc).ready(function(){
+				$('.btn-layer-open').on('click', function (e) {
+					$(this).toggleClass('selected');
+					$('.bar-box').toggleClass('active');
+				});
+				$('.btn-layer-hover').on('mouseover', function (e) {
+					$(this).addClass('selected');
+				});
+				$('.btn-layer-hover').on('mouseout', function (e) {
+					$(this).removeClass('selected');
+				});
+
+				$('.setting-open').on('click', function (e) {
+					$(this).toggleClass('active');
+				});
+				$('.month-open').on('click', function (e) {
+					$('.month-list').toggleClass('active');
+				});
+				$('.fake-select').on('click', function (e) {
+					$('.select-area').toggleClass('active');
+				});
+				$('.map-detail-open').on('click', function (e) {
+					$('body').addClass('layer-open');
+				});
+				$('.btn-layer-area-close').on('click', function (e) {
+					$('body').removeClass('layer-open');
+				});
+				$( function() {
+					var handle = $( "#custom-handle" );
+					$( "#slider" ).slider({
+						create: function() {
+							handle.text( $( this ).slider( "value" ) );
+						},
+						slide: function( event, ui ) {
+							handle.text( ui.value );
+						}
+					});
+				} );
+			});
+		})(jQuery, window, document);
+	</script>
+</body>
+</html>
